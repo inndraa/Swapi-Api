@@ -6,7 +6,7 @@ app.service("appData", function ($http) {
   this.getCharacters = function () {
     return $http.get("https://swapi.dev/api/people");
   };
-  this.getSpecies = function () {
+  this.getSpecies    = function () {
     return $http.get("https://swapi.dev/api/species");
   };
 });

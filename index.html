@@ -52,36 +52,130 @@
       <main class="main">
         <div class="main__container">
           <div class="main__inner d-flex">
-            <div class="main__item" ng-repeat="film in films['results'] | filter:searchData">
-              <div class="main__card card text-center" style="width: 19rem">
+            <!-- FILMS -->
+            <div
+              class="main__item"
+              ng-repeat="film in films['results'] | filter:searchData"
+            >
+              <div class="main__card card" style="width: 19rem">
                 <img
                   class="card-img-top"
-                  src="./app/assets/img/death-star.png"
+                  src="./app/assets/img/cover.jpg"
                   alt="item"
-                />  
+                />
                 <div class="main__card-body card-body">
-                  <h5 class="main__card-title card-title mt-4">{{ film.title }}</h5>
-                  <hr>
+                  <h5 class="main__card-title card-title mt-4">
+                    {{ film.title }}
+                  </h5>
+                  <p class="main__card-tag text-muted">
+                    Episode: {{film.episode_id}}
+                  </p>
+                  <hr />
                   <p class="main__card-text card-text">
                     {{ film.opening_crawl }}
                   </p>
                   <p class="main__card-text card-text mt-4">
-                    {{ film.release_date }}
+                   Release date: <u>{{ film.release_date }}</u>
                   </p>
                   <a href="#" class="btn btn-secondary w-100 mt-3">View</a>
                 </div>
               </div>
             </div>
+
+            <!-- characters -->
+            <div
+              class="main__item"
+              ng-repeat="character in characters['results'] | filter:searchData"
+            >
+              <div class="main__card card" style="width: 19rem">
+                <img
+                  class="card-img-top"
+                  src="./app/assets/img/death-star.png"
+                  alt="item"
+                />
+                <div class="main__card-body card-body">
+                  <h5 class="main__card-title card-title mt-4">
+                    {{ character.name }}
+                  </h5>
+                  <p class="main__card-tag text-muted">
+                    Height: {{character.height}} | Mass: {{character.mass}} |
+                    Birthyear: {{character.birth_year}}
+                  </p>
+                  <p class="main__card-tag text-muted mt-2">
+                    Hair: {{character.hair_color}} | Skin:
+                    {{character.skin_color}} | Eyes: {{character.eye_color}} |
+                    Gender: {{character.gender}}
+                  </p>
+                  <hr />
+                  <!-- <p class="main__card-tag text-muted">
+                    From: {{character.homeworld}} | Films: {{character.films}} |
+                    Species: {{character.species}}
+                  </p> -->
+                  <a href="#" class="btn btn-secondary w-100 mt-3">View</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Species -->
+            <div
+              class="main__item"
+              ng-repeat="specie in species['results'] | filter:searchData"
+            >
+              <div class="main__card card text-left" style="width: 19rem">
+                <img
+                  class="card-img-top"
+                  src="./app/assets/img/species.png"
+                  alt="item"
+                />
+                <div class="main__card-body card-body">
+                  <h5 class="main__card-title card-title mt-4">
+                    {{ specie.name}}
+                  </h5>
+                  <p class="main__card-tag text-muted">
+                    Class: {{specie.classification}}
+                  </p>
+                  <hr />  
+                  <p class="main__card-tag text-muted card-text">
+                    Avg. height: {{ specie.average_height }}
+                  </p>
+                  <p class="main__card-tag text-muted card-text mt-2">
+                   Skin: {{ specie.skin_colors }}
+                  </p>
+                  <p class="main__card-tag text-muted card-text mt-2">
+                    Hair: {{ specie.hair_colors }}
+                   </p>
+                   <p class="main__card-tag text-muted card-text mt-2">
+                    Eyes: {{ specie.eye_colors }}
+                   </p>
+                   <p class="main__card-tag text-muted card-text mt-2">
+                    Avg. lifespan: {{ specie.average_lifespan }}
+                   </p>
+                   <p class="main__card-tag text-muted card-text mt-2">
+                    Language: {{ specie.language }}
+                   </p>
+                   <p class="main__card-tag text-muted card-text mt-2">
+                    People: {{ specie[characters] }}
+                   </p>
+                  <a href="#" class="btn btn-secondary w-100 mt-3">View</a>
+                </div>
+              </div>
+            </div>
+
+
+
           </div>
         </div>
       </main>
       <footer class="footer">
-        <p class="footer__text text-center text-secondary">
-          <span class="footer__copyright-sign">©</span> Hello.com
-        </p>
+        <div class="container">
+          <p class="footer__text text-center text-secondary">
+            <span class="footer__copyright-sign">©</span> Hello.com
+          </p>
+        </div>
       </footer>
     </div>
-    <script src="./app/js/angular.min.js"></script>
+    <script src="./app/js/libs/angular.min.js"></script>
+    <script src="./app/js/libs/angular-route.js"></script>
     <script src="./app/js/app.js"></script>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>

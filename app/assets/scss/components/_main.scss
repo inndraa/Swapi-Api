@@ -1,0 +1,38 @@
+.wrapper{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto; 
+    top: 10%;
+}
+.main{
+    margin-top: 100px;
+    &__inner{
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    &__container{
+        max-width: 1050px;
+        padding: 0 5px;
+        margin: 0 auto;
+    }
+    &__card{
+        &-title{
+            font-size: 18px;
+            font-weight: bold;
+        }
+        &-body{
+            align-self: normal !important;
+        }
+        &-text{
+
+        }
+    }
+}   
+
+.card{
+    display: flex !important; 
+    flex-wrap: wrap !important;
+    flex: 0 0 33.333% !important;
+}

@@ -1,0 +1,32 @@
+.header{
+    &__subheader{
+        justify-content: space-between;
+        &-search{
+            padding: 10px 10px;
+            border-radius: 3px;
+            border: 2px solid var(--text-static);
+            transition: all .3s;
+            &:focus{
+                border-color: var(--text-active);
+                outline: none;
+                &::placeholder{
+                    color: transparent;
+                }
+            }
+        }
+    }
+    &__tabs{
+        &-item{
+            color: var(--text-static);
+            background-color:transparent;
+            border: none;
+            text-transform: uppercase;
+            font-size: 32px;
+            font-family: 'Kanit', sans-serif !important;
+            transition: all .3s;
+            &:hover{
+                color: var(--text-active);
+            }
+        }
+    }
+}

@@ -75,16 +75,29 @@
                     <h5 class="main__card-title card-title mt-4">
                       {{ character.name }}
                     </h5>
-                    <p class="main__card-tag text-muted">
-                      Height: {{character.height}} | Mass: {{character.mass}}
-                      | Birthyear: {{character.birth_year}}
+                    <hr />
+                    <p class="main__card-tag text-muted mt-2">
+                      Height: {{character.height}} 
                     </p>
                     <p class="main__card-tag text-muted mt-2">
-                      Hair: {{character.hair_color}} | Skin:
-                      {{character.skin_color}} | Eyes: {{character.eye_color}}
-                      | Gender: {{character.gender}}
+                      Mass: {{character.mass}}
                     </p>
-                    <hr />
+                    <p class="main__card-tag text-muted mt-2">
+                      Birthyear: {{character.birth_year}}
+                    </p>
+                    <p class="main__card-tag text-muted mt-2">
+                      Hair: {{character.hair_color}}
+                    </p>
+                    <p class="main__card-tag text-muted mt-2">
+                      Skin: {{character.skin_color}}
+                    </p>
+                    <p class="main__card-tag text-muted mt-2">
+                      Eyes: {{character.eye_color}}
+                    </p>
+                    <p class="main__card-tag text-muted mt-2 mb-3">
+                      Gender: {{character.gender}}
+                    </p>
+                    
                     <button type="button" data-toggle="modal" data-target="#characterModal"
                       class="btn btn-secondary w-100 mt-auto">View</button>
                   </div>
@@ -92,43 +105,6 @@
               </div>
 
               <!-- Species -->
-              <div class="main__item" ng-repeat="specie in species['results'] | filter:searchData">
-                <div class="main__card card h-100 text-left" style="width: 19rem">
-                  <img class="card-img-top" src="./app/assets/img/species.png" alt="item" />
-                  <div class="main__card-body card-body d-flex flex-column p-3">
-                    <h5 class="main__card-title card-title mt-4">
-                      {{ specie.name}}
-                    </h5>
-                    <p class="main__card-tag text-muted">
-                      Class: {{specie.classification}}
-                    </p>
-                    <hr />
-                    <p class="main__card-tag text-muted card-text">
-                      Avg. height: {{ specie.average_height }}
-                    </p>
-                    <p class="main__card-tag text-muted card-text mt-2">
-                      Skin: {{ specie.skin_colors }}
-                    </p>
-                    <p class="main__card-tag text-muted card-text mt-2">
-                      Hair: {{ specie.hair_colors }}
-                    </p>
-                    <p class="main__card-tag text-muted card-text mt-2">
-                      Eyes: {{ specie.eye_colors }}
-                    </p>
-                    <p class="main__card-tag text-muted card-text mt-2">
-                      Avg. lifespan: {{ specie.average_lifespan }}
-                    </p>
-                    <p class="main__card-tag text-muted card-text mt-2">
-                      Language: {{ specie.language }}
-                    </p>
-                    <p class="main__card-tag text-muted card-text mt-2 mb-3">
-                      People: {{ specie[characters] }}
-                    </p>
-                    <a href="#" class="btn btn-secondary w-100 mt-auto">View</a>
-                  </div>
-                </div>
-              </div>
-
               <div class="main__item" ng-repeat="specie in species['results'] | filter:searchData">
                 <div class="main__card card h-100 text-left" style="width: 19rem">
                   <img class="card-img-top" src="./app/assets/img/species.png" alt="item" />

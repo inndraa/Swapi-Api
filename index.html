@@ -249,6 +249,61 @@
                 </div>
               </div>
 
+              <div class="main__item" ng-repeat="starship in starships['results'] | filter:searchData">
+                <div class="main__card card h-100 text-left" style="width: 19rem">
+                  <img class="card-img-top" src="./app/assets/img/millennium-falcon.webp" alt="item" />
+                  <div class="main__card-body card-body d-flex flex-column p-3">
+                    <h5 class="main__card-title card-title mt-4">
+                      {{ starship.name}}
+                    </h5>
+                    <p class="main__card-tag text-muted">
+                      Model: {{starship.model}}
+                    </p>
+                    <hr />
+                    <p class="main__card-tag text-muted card-text">
+                      Manufacturer: {{ starship.manufacturer }}
+                    </p>
+                    <p class="main__card-tag text-muted card-text mt-2">
+                      Price: {{ starship.cost_in_credits }}
+                    </p>
+                    <p class="main__card-tag text-muted card-text mt-2">
+                      Length: {{ starship.length }}
+                    </p>
+                    <p class="main__card-tag text-muted card-text mt-2">
+                      Max. speed: {{ starship.max_atmosphering_speed }}
+                    </p>
+                    <p class="main__card-tag text-muted card-text mt-2">
+                     Crew: {{ starship.crew }}
+                    </p>
+                    <p class="main__card-tag text-muted card-text mt-2 ">
+                      Passengers: {{ starship.passengers }}
+                    </p>  
+                    <p class="main__card-tag text-muted card-text mt-2 ">
+                      Cargo capacity: {{ starship.cargo_capacity }}
+                    </p>
+                    <p class="main__card-tag text-muted card-text mt-2 ">
+                      Consumables: {{ starship.consumables }}
+                    </p>
+                    <p class="main__card-tag text-muted card-text mt-2">
+                      Class: {{starship.vehicle_class }}
+                    </p>
+                    <p class="main__card-tag text-muted card-text mt-2 ">
+                      Hyperdrive: {{starship.hyperdrive_rating }}
+                    </p>
+                    <p class="main__card-tag text-muted card-text mt-2 ">
+                      MGLT: {{starship.MGLT }}
+                    </p>
+                    <p class="main__card-tag text-muted card-text mt-2 mb-3">
+                      Class: {{starship.starship_class }}
+                    </p>
+                    <!-- <p class="main__card-tag text-muted card-text mt-2 mb-3">
+                      residents: {{ specie[characters] }}
+                    </p> -->
+                    <a href="#" class="btn btn-secondary w-100 mt-auto">View</a>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>

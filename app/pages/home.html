@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./app/assets/img/death-star.png" type="image/x-icon" />
+    <title>App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="./app/assets/css/app.min.css" />
+</head>
+
+<body ng-app="appModule" ng-controller="appController">
+
+    <div class="wrapper">
+     
+        <!-- <header class="header">
+            <div class="container">
+                <div class="header__inner">
+                    <div class="header__subheader d-flex align-items-center mb-4">
+                        <p class="header__subheader-tag">
+                            Swapi API
+                        </p>
+                        <input placeholder="Search for an item..." class="header__subheader-search" type="text"
+                            ng-model="searchData" />
+                    </div>
+                    <div class="header__tabs">
+                        <div class="header__tabs__inner">
+                            <a href="#/home" class="header__tabs-item">ALL</a>
+                            <a href="#/films" class="header__tabs-item">Films</a>
+                            <a href="#/people" class="header__tabs-item">People</a>
+                            <a href="#/species" class="header__tabs-item">
+                                Species
+                            </a>
+                            <a href="#/starships" class="header__tabs-item">Starships</a>
+                            <a href="#/vehicles" class="header__tabs-item">Vehicles</a>
+                            <a href="#/planets" class="header__tabs-item">Planets</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+
+            <div class="main__container">
+                <div class="row">
+                    <div class="col-lg">
+                        <div class="main__inner d-flex">
+
+                            <div class="main__item" ng-repeat="film in films['results'] | filter:searchData">
+                                <div class="main__card h-100 card" style="width: 19rem">
+                                    <img class="card-img-top" src="./app/assets/img/cover.jpg" alt="item" />
+                                    <div class="main__card-body gap-1 card-body d-flex flex-column p-3">
+                                        <h5 class="main__card-title card-title mt-2">
+                                            {{ film.title }}
+                                        </h5>
+                                        <p
+                                            class="main__card-tag text-muted d-flex justify-content-between align-items-center">
+                                            Episode: {{film.episode_id}} <u>{{ film.release_date }}</u>
+                                        </p>
+                                        <hr />
+                                        <p class="main__card-text card-text mb-4">
+                                            {{ film.opening_crawl }}
+                                        </p>
+
+                                        <a href="#" class="btn btn-secondary w-100 mt-auto">View</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="main__item" ng-repeat="character in characters['results'] | filter:searchData">
+                                <div class="main__card h-100 card" style="width: 19rem">
+                                    <img class="card-img-top" src="./app/assets/img/death-star.png" alt="item" />
+                                    <div class="main__card-body card-body d-flex flex-column p-3">
+                                        <h5 class="main__card-title card-title mt-4">
+                                            {{ character.name }}
+                                        </h5>
+                                        <hr />
+                                        <p class="main__card-tag text-muted mt-2">
+                                            Height: {{character.height}}
+                                        </p>
+                                        <p class="main__card-tag text-muted mt-2">
+                                            Mass: {{character.mass}}
+                                        </p>
+                                        <p class="main__card-tag text-muted mt-2">
+                                            Birthyear: {{character.birth_year}}
+                                        </p>
+                                        <p class="main__card-tag text-muted mt-2">
+                                            Hair: {{character.hair_color}}
+                                        </p>
+                                        <p class="main__card-tag text-muted mt-2">
+                                            Skin: {{character.skin_color}}
+                                        </p>
+                                        <p class="main__card-tag text-muted mt-2">
+                                            Eyes: {{character.eye_color}}
+                                        </p>
+                                        <p class="main__card-tag text-muted mt-2 mb-3">
+                                            Gender: {{character.gender}}
+                                        </p>
+                                        <button type="button" data-toggle="modal" data-target="#characterModal"
+                                            class="btn btn-secondary w-100 mt-auto">View</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="main__item" ng-repeat="specie in species['results'] | filter:searchData">
+                                <div class="main__card card h-100 text-left" style="width: 19rem">
+                                    <img class="card-img-top" src="./app/assets/img/species.png" alt="item" />
+                                    <div class="main__card-body card-body d-flex flex-column p-3">
+                                        <h5 class="main__card-title card-title mt-4">
+                                            {{ specie.name}}
+                                        </h5>
+                                        <p class="main__card-tag text-muted">
+                                            Class: {{specie.classification}}
+                                        </p>
+                                        <hr />
+                                        <p class="main__card-tag text-muted card-text">
+                                            Avg. height: {{ specie.average_height }}
+                                        </p>
+                                        <p class="main__card-tag text-muted card-text mt-2">
+                                            Skin: {{ specie.skin_colors }}
+                                        </p>
+                                        <p class="main__card-tag text-muted card-text mt-2">
+                                            Hair: {{ specie.hair_colors }}
+                                        </p>
+                                        <p class="main__card-tag text-muted card-text mt-2">
+                                            Eyes: {{ specie.eye_colors }}
+                                        </p>
+                                        <p class="main__card-tag text-muted card-text mt-2">
+                                            Avg. lifespan: {{ specie.average_lifespan }}
+                                        </p>
+                                        <p class="main__card-tag text-muted card-text mt-2">
+                                            Language: {{ specie.language }}
+                                        </p>
+                                        <p class="main__card-tag text-muted card-text mt-2 mb-3">
+                                            People: {{ specie[characters] }}
+                                        </p>
+                                        <a href="#" class="btn btn-secondary w-100 mt-auto">View</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main__item" ng-repeat="planet in planets['results'] | filter:searchData">
+                                <div class="main__card card h-100 text-left" style="width: 19rem">
+                                    <img class="card-img-top" src="./app/assets/img/hubblejupiter.webp" alt="item" />
+                                    <div class="main__card-body card-body d-flex flex-column p-3">
+                                        <h5 class="main__card-title card-title mt-2">
+                                            {{ planet.name}}
+                                        </h5>
+                                        <p class="main__card-tag text-muted">
+                                            Population: {{planet.population}}
+                                        </p>
+                                        <hr />
+                                        <p class="main__card-tag text-muted card-text">
+                                            Rotation period: {{ planet.rotation_period }}
+                                        </p>
+                                        <p class="main__card-tag text-muted card-text mt-2">
+                                            Orbital period: {{ planet.orbital_period }}
+                                        </p>
+                                        <p class="main__card-tag text-muted card-text mt-2">
+                                            Diameter: {{ planet.diameter }}
+                                        </p>
+                                        <p class="main__card-tag text-muted card-text mt-2">
+                                            Gravity: {{ planet.gravity }}
+                                        </p>
+                                        <p class="main__card-tag text-muted card-text mt-2">
+                                            Terrain: {{ planet.terrain }}
+                                        </p>
+                                        <p class="main__card-tag text-muted card-text mt-2 mb-3">
+                                            Surface water: {{ planet.surface_water }}
+                                        </p>
+
+                                        <a href="#" class="btn btn-secondary w-100 mt-auto">View</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="main__item" ng-repeat="vehicle in vehicles['results'] | filter:searchData">
+                                <div class="main__card card h-100 text-left" style="width: 19rem">
+                                    <img class="card-img-top"
+                                        src="./app/assets/img/227e537cceec400aa65a6275e9942573lg.webp" alt="item" />
+                                    <div class="main__card-body card-body d-flex flex-column p-3">
+                                        <h5 class="main__card-title card-title mt-4">
+                                            {{ vehicle.name}}
+                                        </h5>
+                                        <p class="main__card-tag text-muted">
+                                            Model: {{vehicle.model}}
+                                        </p>
+                                        <hr />
+                                        <p class="main__card-tag text-muted card-text">
+                                            Manufacturer: {{ vehicle.manufacturer }}
+                                        </p>
+                                        <p class="main__card-tag text-muted card-text mt-2">
+                                            Price: {{ vehicle.cost_in_credits }}
+                                        </p>
+                                        <p class="main__card-tag text-muted card-text mt-2">
+                                            Length: {{ vehicle.length }}
+                                        </p>
+                                        <p class="main__card-tag text-muted card-text mt-2">
+                                            Max. speed: {{ vehicle.max_atmosphering_speed }}
+                                        </p>
+                                        <p class="main__card-tag text-muted card-text mt-2">
+                                            Crew: {{ vehicle.crew }}
+                                        </p>
+                                        <p class="main__card-tag text-muted card-text mt-2 ">
+                                            Passengers: {{ vehicle.passengers }}
+                                        </p>
+                                        <p class="main__card-tag text-muted card-text mt-2 ">
+                                            Cargo capacity: {{ vehicle.cargo_capacity }}
+                                        </p>
+                                        <p class="main__card-tag text-muted card-text mt-2 ">
+                                            Consumables: {{ vehicle.consumables }}
+                                        </p>
+                                        <p class="main__card-tag text-muted card-text mt-2 mb-3">
+                                            Class: {{ vehicle.vehicle_class }}
+                                        </p>
+
+                                        <a href="#" class="btn btn-secondary w-100 mt-auto">View</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="main__item" ng-repeat="starship in starships['results'] | filter:searchData">
+                                <div class="main__card card h-100 text-left" style="width: 19rem">
+                                    <img class="card-img-top" src="./app/assets/img/millennium-falcon.webp"
+                                        alt="item" />
+                                    <div class="main__card-body card-body d-flex flex-column p-3">
+                                        <h5 class="main__card-title card-title mt-4">
+                                            {{ starship.name}}
+                                        </h5>
+                                        <p class="main__card-tag text-muted">
+                                            Model: {{starship.model}}
+                                        </p>
+                                        <hr />
+                                        <p class="main__card-tag text-muted card-text">
+                                            Manufacturer: {{ starship.manufacturer }}
+                                        </p>
+                                        <p class="main__card-tag text-muted card-text mt-2">
+                                            Price: {{ starship.cost_in_credits }}
+                                        </p>
+                                        <p class="main__card-tag text-muted card-text mt-2">
+                                            Length: {{ starship.length }}
+                                        </p>
+                                        <p class="main__card-tag text-muted card-text mt-2">
+                                            Max. speed: {{ starship.max_atmosphering_speed }}
+                                        </p>
+                                        <p class="main__card-tag text-muted card-text mt-2">
+                                            Crew: {{ starship.crew }}
+                                        </p>
+                                        <p class="main__card-tag text-muted card-text mt-2 ">
+                                            Passengers: {{ starship.passengers }}
+                                        </p>
+                                        <p class="main__card-tag text-muted card-text mt-2 ">
+                                            Cargo capacity: {{ starship.cargo_capacity }}
+                                        </p>
+                                        <p class="main__card-tag text-muted card-text mt-2 ">
+                                            Consumables: {{ starship.consumables }}
+                                        </p>
+                                        <p class="main__card-tag text-muted card-text mt-2">
+                                            Class: {{starship.vehicle_class }}
+                                        </p>
+                                        <p class="main__card-tag text-muted card-text mt-2 ">
+                                            Hyperdrive: {{starship.hyperdrive_rating }}
+                                        </p>
+                                        <p class="main__card-tag text-muted card-text mt-2 ">
+                                            MGLT: {{starship.MGLT }}
+                                        </p>
+                                        <p class="main__card-tag text-muted card-text mt-2 mb-3">
+                                            Class: {{starship.starship_class }}
+                                        </p>
+                                        <a href="#" class="btn btn-secondary w-100 mt-auto">View</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main> -->
+    </div>
+    <script src="./app/js/libs/angular.min.js"></script>
+    <script src="./app/js/libs/angular-route.js"></script>
+    <script src="./app/js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,4 +1,4 @@
-let app = angular.module("appModule", []);
+let app = angular.module("appModule", ['ngRoute']);
 app.service("appData", function ($http) {
   this.getFilms = function () {
     return $http.get("https://swapi.dev/api/films");
@@ -75,4 +75,40 @@ app.controller("appController", function ($scope, appData) {
     });
   }
   getAllStarships();
+
 });
+
+app.config(['$routeProvider', function ($routeProvider) {
+  $routeProvider.when('/', {
+    templateUrl: '/app/pages/home.html'
+  })
+    .when('/films', {
+      templateUrl: "/app/pages/films.html"
+
+    })
+    .when('/people', {
+      templateUrl: '/app/pages/people.html'
+
+    })
+    .when('/planets', {
+      templateUrl: '/app/pages/planets.html'
+
+    })
+    .when('/species', {
+      templateUrl: '/app/pages/species.html'
+
+    })
+    .when('/starships', {
+      templateUrl: '/app/pages/starships.html'
+
+    })
+    .when('/vehicles', {
+      templateUrl: '/app/pages/vehicles.html'
+    })
+    .otherwise({
+      redirectTo: '/'
+    })
+}])
+// app.controller('filmsCtrl', function($scope){
+//   $scope.comments = [];
+// })

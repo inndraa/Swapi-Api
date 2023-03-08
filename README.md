@@ -1,2 +1,1 @@
-#swapi api
-angularJS
+API - https://swapi.dev/
